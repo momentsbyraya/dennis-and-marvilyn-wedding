@@ -123,7 +123,7 @@ const RSVPModal = ({ isOpen, onClose }) => {
               <div className="w-full h-px bg-[#6B8FA3] opacity-40"></div>
             </div>
             <p className="text-sm sm:text-base font-albert font-thin text-[#333333] max-w-3xl mx-auto leading-relaxed text-center">
-              As we count the days with hearts to bright,<br />
+              As we count the days with hearts so bright,<br />
               Your RSVP helps make everything right.<br />
               Kindly respond on or before<br /><strong className="!font-bold" style={{ fontWeight: 700 }}>February 28, 2026</strong>, we pray.<br />
               For after this date, arrangements are final and must stay.

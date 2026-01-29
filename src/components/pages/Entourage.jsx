@@ -721,7 +721,7 @@ const Entourage = () => {
                 <div ref={juniorFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                   <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Junior Flower Girls</p>
                   {juniorFlowerGirls.names && juniorFlowerGirls.names.map((name, index) => (
-                    <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
                     </p>
                   ))}
@@ -735,7 +735,7 @@ const Entourage = () => {
                 <div ref={littleFlowerGirlsRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                   <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Little Flower Girls</p>
                   {littleFlowerGirls.names && littleFlowerGirls.names.map((name, index) => (
-                    <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
                     </p>
                   ))}
@@ -749,7 +749,7 @@ const Entourage = () => {
                 <div ref={hereComesTheBrideRef} className="flex flex-col gap-2 justify-center items-center mt-6">
                   <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-center uppercase" style={{ color: '#006666' }}>Here comes the bride</p>
                   {hereComesTheBride.names && hereComesTheBride.names.map((name, index) => (
-                    <p key={index} className="text-[10px] sm:text-sm md:text-base lg:text-lg font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-center">
                       {name}
                     </p>
                   ))}
