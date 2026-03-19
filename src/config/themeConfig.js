@@ -1,37 +1,37 @@
-// Theme Configuration - Softer Cerulean Blue palette (reduced saturation, increased lightness, sky undertone)
-// Primary: #4A9FD4, Hover: #3B8FCE, Accent: #5BAED9 (WCAG AA text: #2E7BB8 where needed)
+// Theme Configuration - Dusty Blue palette (muted, elegant, sky undertone)
+// Primary: #6685A4, Hover: #2F4869, Accent: #7092BE
 export const themeConfig = {
     // Background Colors
     backgrounds: {
         primary: 'bg-gray-900',
         secondary: 'bg-gray-800',
-        accent: 'bg-[#5BAED9]',           // Softer Cerulean - main motif
+        accent: 'bg-[#7092BE]',           // Medium Denim - main motif
         light: 'bg-white/50',
-        theme: 'bg-[#B9E3FF]',             // Powder Blue - light backgrounds
-        garden: 'bg-[#B9E3FF]',           // Powder Blue
+        theme: 'bg-[#94AFC3]',             // Muted Steel Blue - light backgrounds
+        garden: 'bg-[#94AFC3]',           // Muted Steel Blue
         crumpledPaper: 'bg-[url("/assets/images/crumpled-paper.png")] bg-cover bg-center bg-no-repeat',
     },
 
     // Text Colors
     text: {
-        primary: 'text-[#4A9FD4]',         // Softer Cerulean - headings
+        primary: 'text-[#6685A4]',         // Dusty Slate Blue - headings
         secondary: 'text-gray-300',
-        accent: 'text-[#5BAED9]',         // Softer Cerulean - motif
+        accent: 'text-[#7092BE]',         // Medium Denim - motif
         muted: 'text-gray-400',
         dark: 'text-wedding-800',
-        theme: 'text-[#4A9FD4]',
+        theme: 'text-[#6685A4]',
         pause: 'text-[#dcdcdc]',
         custom: 'text-[#44484d]',
         light: '#6b7280',
         lightBlack: '#4a5568',
-        cerulean: '#5BAED9',
-        powderBlue: '#B9E3FF',
-        royalAzure: '#4A9FD4',
-        primaryDark: '#2E7BB8',            // Darker for WCAG AA on white (small text)
+        cerulean: '#7092BE',
+        powderBlue: '#94AFC3',
+        royalAzure: '#6685A4',
+        primaryDark: '#2F4869',            // Deep Navy - darker for contrast
         // Aliases for components still using old names
-        burntOrange: '#4A9FD4',
-        sageGreen: '#5BAED9',
-        gardenGreen: '#5BAED9',
+        burntOrange: '#6685A4',
+        sageGreen: '#7092BE',
+        gardenGreen: '#7092BE',
         ivory: '#FFFFF0',
         beige: '#F5F5DC',
         brown: '#8B4513',
@@ -41,26 +41,26 @@ export const themeConfig = {
     borders: {
         primary: 'border-gray-700',
         secondary: 'border-gray-600',
-        accent: 'border-[#5BAED9]',
-        theme: 'border-[#4A9FD4]',
-        garden: 'border-[#5BAED9]',
+        accent: 'border-[#7092BE]',
+        theme: 'border-[#6685A4]',
+        garden: 'border-[#7092BE]',
     },
 
     // Button Colors - Softer Cerulean, hover slightly darker
     buttons: {
-        primary: 'bg-[#4A9FD4] hover:bg-[#3B8FCE]',
+        primary: 'bg-[#6685A4] hover:bg-[#2F4869]',
         secondary: 'border border-gray-600 hover:border-gray-400',
         text: 'text-gray-300 hover:text-white',
-        theme: 'bg-[#5BAED9] hover:bg-[#4A9FD4]',
-        garden: 'bg-[#5BAED9] hover:bg-[#4A9FD4]',
+        theme: 'bg-[#7092BE] hover:bg-[#6685A4]',
+        garden: 'bg-[#7092BE] hover:bg-[#6685A4]',
     },
 
     // Hover Effects
     hover: {
-        primary: 'hover:bg-[#3B8FCE]',
+        primary: 'hover:bg-[#2F4869]',
         secondary: 'hover:border-gray-400 hover:text-white',
-        theme: 'hover:bg-[#4A9FD4]',
-        garden: 'hover:bg-[#4A9FD4]',
+        theme: 'hover:bg-[#6685A4]',
+        garden: 'hover:bg-[#6685A4]',
     },
 
     // Container Configuration
@@ -72,40 +72,40 @@ export const themeConfig = {
 
     // Calendar Configuration
     calendar: {
-        weddingDate: '2026-05-05',
-        highlightColor: 'bg-[#5BAED9]',       // Softer Cerulean
-        heartColor: 'text-[#5BAED9]',
+        weddingDate: '2026-04-11',
+        highlightColor: 'bg-[#7092BE]',       // Medium Denim
+        heartColor: 'text-[#7092BE]',
         textColor: 'text-gray-700',
-        headerColor: 'text-[#4A9FD4]',        // Softer Cerulean
-        dayNamesColor: 'text-[#5BAED9]',
-        background: 'bg-[#B9E3FF]',           // Powder Blue
+        headerColor: 'text-[#6685A4]',        // Dusty Slate Blue
+        dayNamesColor: 'text-[#7092BE]',
+        background: 'bg-[#94AFC3]',           // Muted Steel Blue
     },
 
     // Paragraph Configuration
     paragraph: {
-        background: 'bg-[#B9E3FF]',            // Powder Blue
-        garden: 'bg-[#B9E3FF]',
+        background: 'bg-[#94AFC3]',            // Muted Steel Blue
+        garden: 'bg-[#94AFC3]',
     },
 
     // Custom CSS Variables
     cssVariables: {
         '--primary-bg': '#111827',
         '--secondary-bg': '#1f2937',
-        '--accent-bg': '#4A9FD4',             // Softer Cerulean - buttons, strong accents
-        '--accent-hover': '#3B8FCE',
-        '--primary-text': '#4A9FD4',          // Softer Cerulean - headings
+        '--accent-bg': '#6685A4',             // Dusty Slate Blue - strong accents
+        '--accent-hover': '#2F4869',
+        '--primary-text': '#6685A4',          // Dusty Slate Blue - headings
         '--secondary-text': '#d1d5db',
-        '--accent-text': '#5BAED9',           // Softer Cerulean - motif
+        '--accent-text': '#7092BE',           // Medium Denim - motif
         '--muted-text': '#9ca3af',
-        '--border-color': '#5BAED9',
-        '--custom-theme': '#5BAED9',
-        '--cerulean': '#5BAED9',
-        '--powder-blue': '#B9E3FF',
-        '--royal-azure': '#4A9FD4',
+        '--border-color': '#7092BE',
+        '--custom-theme': '#7092BE',
+        '--cerulean': '#7092BE',
+        '--powder-blue': '#94AFC3',
+        '--royal-azure': '#6685A4',
         '--ivory': '#FFFFF0',
         '--beige': '#F5F5DC',
         '--brown': '#8B4513',
-        '--garden-bg': '#B9E3FF',
+        '--garden-bg': '#94AFC3',
     }
 }
 
@@ -115,12 +115,12 @@ export const themePresets = {
         backgrounds: {
             primary: 'bg-gray-900',
             secondary: 'bg-gray-800',
-            accent: 'bg-[#5BAED9]',
+            accent: 'bg-[#7092BE]',
         },
         text: {
             primary: 'text-white',
             secondary: 'text-gray-300',
-            accent: 'text-[#5BAED9]',
+            accent: 'text-[#7092BE]',
         }
     },
 
@@ -152,16 +152,16 @@ export const themePresets = {
 
     gardenWedding: {
         backgrounds: {
-            primary: 'bg-[#B9E3FF]',
+            primary: 'bg-[#94AFC3]',
             secondary: 'bg-white',
-            accent: 'bg-[#4A9FD4]',
-            theme: 'bg-[#B9E3FF]',
+            accent: 'bg-[#6685A4]',
+            theme: 'bg-[#94AFC3]',
         },
         text: {
-            primary: 'text-[#4A9FD4]',
+            primary: 'text-[#6685A4]',
             secondary: 'text-gray-700',
-            accent: 'text-[#5BAED9]',
-            garden: 'text-[#5BAED9]',
+            accent: 'text-[#7092BE]',
+            garden: 'text-[#7092BE]',
         }
     }
 }

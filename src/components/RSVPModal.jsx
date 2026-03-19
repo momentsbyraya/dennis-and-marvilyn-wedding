@@ -95,15 +95,12 @@ const RSVPModal = ({ isOpen, onClose }) => {
           </button>
         </div>
         
-        {/* Content - Google Form RSVP */}
+        {/* Content */}
         <div className="flex-1 flex flex-col min-h-0">
-          <div className="flex-1 overflow-y-auto rsvp-modal-content p-4 min-h-[400px]">
-            <iframe
-              src="https://forms.gle/ByJFQn2Ccyzyz76h8"
-              title="RSVP for the Wedding of Rayvin Jerick & Cheche"
-              className="w-full h-full min-h-[500px] border-0 rounded-lg"
-              allowFullScreen
-            />
+          <div className="flex-1 overflow-y-auto rsvp-modal-content p-6 min-h-[200px] flex items-center justify-center">
+            <div className="text-center text-gray-900/70 font-albert">
+              To be added
+            </div>
           </div>
         </div>
       </div>

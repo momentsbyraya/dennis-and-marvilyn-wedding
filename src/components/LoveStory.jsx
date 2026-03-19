@@ -19,14 +19,16 @@ const LoveStory = () => {
   const overlayRef = useRef(null)
   const contentRef = useRef(null)
 
-  // Split content into paragraphs
-  const paragraphs = loveStory.content.split('\n\n').filter(p => p.trim())
-
-  // Polaroid images - prenup1, prenup2, prenup3 for Our Love Story
+  // Gallery images for Our Moments
   const polaroidImages = [
-    '/assets/images/prenup/prenup1.jpg',
-    '/assets/images/prenup/prenup2.jpg',
-    '/assets/images/prenup/prenup3.JPG',
+    '/assets/images/prenup/DSC6186.jpg',
+    '/assets/images/prenup/DSC6203.jpg',
+    '/assets/images/prenup/DSC6233.jpg',
+    '/assets/images/prenup/DSC6243.jpg',
+    '/assets/images/prenup/DSC6279.jpg',
+    '/assets/images/prenup/DSC6290.jpg',
+    '/assets/images/prenup/DSC6335.jpg',
+    '/assets/images/prenup/DSC6361.jpg',
   ]
 
   useEffect(() => {
@@ -69,24 +71,6 @@ const LoveStory = () => {
       })
     }
   }, [])
-
-  // Function to format paragraph text with styled quote
-  const formatParagraph = (text) => {
-    // Match the quote pattern: "I found him whom my soul loveth" – Song of Solomon 3:4
-    const quotePattern = /("I found him whom my soul loveth" – Song of Solomon 3:4)/
-    const parts = text.split(quotePattern)
-    
-    return parts.map((part, i) => {
-      if (quotePattern.test(part)) {
-        return (
-          <span key={i} className="font-bold italic">
-            {part}
-          </span>
-        )
-      }
-      return part
-    })
-  }
 
   // Handle image click to open modal
   const handleImageClick = (index) => {
@@ -157,48 +141,23 @@ const LoveStory = () => {
     }
   }, [isModalOpen])
 
-  // Polaroid component (altLabel e.g. 'prenup1', 'prenup2', 'prenup3')
-  const Polaroid = ({ image, rotation = 0, index, size = 'normal', altLabel }) => {
-    const maxWidth = size === 'small' ? '150px' : '200px'
-    const alt = altLabel || `Love story moment ${index + 1}`
+  // Gallery item component
+  const Polaroid = ({ image, index, altLabel }) => {
+    const alt = altLabel || `Gallery image ${index + 1}`
     return (
-    <div 
-      className="bg-white shadow-lg relative cursor-pointer"
-      style={{
-        border: '4px solid white',
-        borderBottom: '12px solid white',
-        transform: `rotate(${rotation}deg)`,
-        maxWidth: maxWidth,
-        width: '100%',
-        padding: '2px 2px 8px 2px'
-      }}
-      onClick={() => handleImageClick(index)}
-    >
-      <div className="relative">
-        <img 
+      <button
+        type="button"
+        className="relative w-full overflow-hidden rounded-xl shadow-md cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+        onClick={() => handleImageClick(index)}
+        aria-label={`Open gallery image ${index + 1}`}
+      >
+        <img
           src={image}
           alt={alt}
           className="w-full aspect-square object-cover"
-          style={{
-            border: '2px solid #f5f5f0',
-            borderBottom: 'none',
-            display: 'block'
-          }}
+          style={{ display: 'block' }}
         />
-        {/* Stamp overlay */}
-        <img 
-          src="/assets/images/graphics/stamp.png"
-          alt="Stamp"
-          className="absolute left-1/2 transform -translate-x-1/2"
-          style={{
-            top: '-8%',
-            width: '20%',
-            height: 'auto',
-            pointerEvents: 'none'
-          }}
-        />
-      </div>
-    </div>
+      </button>
     )
   }
 
@@ -253,50 +212,15 @@ const LoveStory = () => {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="relative">
-          {/* Story content: prenup1 & prenup2 above text, story paragraph, prenup3 below */}
-          <div className="relative z-10 space-y-10 sm:space-y-12 md:space-y-16">
-            {paragraphs.map((paragraph, index) => (
-              <div key={index} className="story-item relative flex flex-col items-center gap-10 sm:gap-12 md:gap-16">
-                {/* Row 1: prenup1 and prenup2 above the story text */}
-                <div className="flex gap-4 sm:gap-6 justify-center w-full">
-                  {polaroidImages[0] && (
-                    <Polaroid 
-                      image={polaroidImages[0]} 
-                      rotation={-5} 
-                      index={0} 
-                      altLabel="prenup1"
-                    />
-                  )}
-                  {polaroidImages[1] && (
-                    <Polaroid 
-                      image={polaroidImages[1]} 
-                      rotation={5} 
-                      index={1} 
-                      altLabel="prenup2"
-                    />
-                  )}
-                </div>
-
-                {/* Row 2: story text */}
-                <div className="w-full max-w-2xl mx-auto text-center">
-                  <p className="text-base sm:text-lg font-albert font-thin text-[#333333] leading-relaxed">
-                    {formatParagraph(paragraph)}
-                  </p>
-                </div>
-
-                {/* Row 3: prenup3 below the story text */}
-                {polaroidImages[2] && (
-                  <div className="flex justify-center w-full">
-                    <Polaroid 
-                      image={polaroidImages[2]} 
-                      rotation={2} 
-                      index={2} 
-                      altLabel="prenup3"
-                    />
-                  </div>
-                )}
-              </div>
+        <div className="relative z-10">
+          <div className="story-item grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-4xl mx-auto">
+            {polaroidImages.map((image, index) => (
+              <Polaroid
+                key={image}
+                image={image}
+                index={index}
+                altLabel={`gallery-${index + 1}`}
+              />
             ))}
           </div>
         </div>

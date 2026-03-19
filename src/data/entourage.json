@@ -1,140 +1,144 @@
 {
   "couple": {
     "groom": {
-      "name": "RAYVIN JERICK MAULLION"
+      "name": "DENNIS"
     },
     "bride": {
-      "name": "CHECHE ALANO"
+      "name": "MARVILYN"
     }
   },
   "parents": {
     "groom": {
-      "father": "ALVARADO IGNACIO",
-      "mother": "IMELDA P. IGNACIO"
+      "father": "Danilo Realon Fernandez",
+      "mother": "Mary Jane Astrero Fernandez"
     },
     "bride": {
-      "father": "RENATO BILLONES",
-      "mother": "NATIVIDAD JOENINE BILLONES"
+      "father": "",
+      "mother": "Marilou Mararang"
     }
   },
   "entourageList": [
     {
-      "category": "Officiating Minister",
-      "names": [
-        "Ptr. Nolito M. Pragas"
-      ]
-    },
-    {
       "category": "Principal Sponsors",
       "ninong": [
-        "Pastor Nolito M. Pragas",
-        "Pastor Eusebey D. Varona",
-        "Rev. Jess D. Sibug",
-        "Mr. Rolly C. Arango",
-        "Engr. Fred O. Dela Cruz",
-        "Mr. Enrique S. Lucero",
-        "Mr. Ronaldo L. Salonga",
-        "Arch. Leonardo B. San Diego",
-        "Hon. Renilo M. Teves",
-        "Engr. Ronald M. Frencillo",
-        "Mr. Danilo B. Rodriguez",
-        "Mr. Ariel C. Estudillo",
-        "Mr. Ricardo B. Animas",
-        "Mr. Ariel L. Magpantay"
+        "Daisy Cayog",
+        "Rhemia Embuido",
+        "Yolanda Gallarde",
+        "Margie Esteban",
+        "Lina Guzon",
+        "Imelda Mercader",
+        "Marilou Gubat",
+        "Ma. Elena Mayhira",
+        "Gerlinda Diola",
+        "Marites Dinglasan",
+        "Violy Comia",
+        "Marly Comia",
+        "Imelda Brinoza",
+        "Jocelyn Serrano",
+        "Lita Fabros",
+        "Gema Soriano",
+        "Sheree Ann Alcantara",
+        "Ernalyn May Belo",
+        "Mhiles Tabio German"
       ],
       "ninang": [
-        "Mrs. Jinky C. Pragas",
-        "Mrs. Rosemarie R. Varona",
-        "Mrs. Mishael L. Sibug",
-        "Mrs. Maribeth D. Arango",
-        "Mrs. Milagros P. Dela Cruz",
-        "Mrs. Rolyn A. Lucero",
-        "Mrs. Cheryl S. Salonga",
-        "Mrs. Imee San Diego",
-        "Mrs. Marilou B. Teves",
-        "Mrs. Emily T. Carillo",
-        "Mrs. Adelfa O. Rodriguez",
-        "Mrs. May Ann D. Estudillo",
-        "Mrs. Nelie H. Animas",
-        "Mrs. Bernadette A. Magpantay"
-      ]
-    },
-    {
-      "category": "Secondary Sponsors",
-      "groomsmen": [
-        "Jeremy F. Amante",
-        "Daniel C. Tampipi",
-        "Aljun P. Ignacio"
-      ],
-      "bridesmaid": [
-        "Pauline C. Gavin",
-        "Faith L. San Diego",
-        "Jelli P. Ignacio",
-        "Rose Constans S. Salonga"
+        "Roderick Astrero",
+        "Herman Embuido",
+        "Joel Garcia",
+        "Roberto Esteban",
+        "Virgilio Ganuelas",
+        "Reynante Flores",
+        "Ronald Javarta",
+        "Romeo Mayhira",
+        "Alfonso P. Alfonso",
+        "Dominador Comia",
+        "Victorio Vilchez",
+        "Jorge Comia",
+        "Ian Ramos",
+        "Arnold Punzalan",
+        "Fernando Gagani",
+        "Francisco Co",
+        "Ioeward Mallari",
+        "Cris Dionisio Dazo",
+        "Elorde Seguin"
       ]
     },
     {
       "category": "Bestman",
       "names": [
-        "Allan P. Ignacio"
+        "Daniel Fernandez"
       ]
     },
     {
-      "category": "Matron",
+      "category": "Maid of Honor",
       "names": [
-        "Nikki Grace B. Loterina"
+        "Gertrude Aubrey Declines"
+      ]
+    },
+    {
+      "category": "Secondary Sponsors",
+      "groomsmen": [
+        "Reymark Rick Astrero",
+        "Joseph Ellorenco",
+        "Jhon Paul Villaruel"
+      ],
+      "bridesmaid": [
+        "Kristin Ayla Mercado",
+        "Wiloisa Tabio",
+        "Aja Estoesta"
       ]
     },
     {
       "category": "Candle Sponsors",
       "names": [
-        "Kerl Xandrea D. Pabunan",
-        "Lenard Daniell B. Teves"
+        "Quiven Buntas",
+        "Bhaby Jerica Reyes"
       ]
     },
     {
       "category": "Veil Sponsors",
       "names": [
-        "Claudine P. Ignacio",
-        "Leo F. Pilar"
+        "Mark Ghian Mararang",
+        "Daisy Fernandez"
       ]
     },
     {
       "category": "Cord Sponsors",
       "names": [
-        "Dariz P. Ignacio",
-        "Wilmer Pilar"
+        "Dickson Fernandez",
+        "Erika Raotrot"
       ]
     },
     {
       "category": "Ring Bearer",
       "names": [
-        "Kael G. Ignacio"
-      ]
-    },
-    {
-      "category": "Bible Bearer",
-      "names": [
-        "Kian D. Pabunan"
+        "Zairus Mararang"
       ]
     },
     {
       "category": "Coin Bearer",
       "names": [
-        "Isaac R. Pilar"
+        "Zach Aiden Mararang"
       ]
     },
     {
-      "category": "Flower Girls",
+      "category": "Bible Bearer",
       "names": [
-        "Reine Felize I. Billones",
-        "Yllia Keeana B. Billones"
+        "Yiel Fraze Manas"
       ]
     },
     {
-      "category": "Little Bride",
+      "category": "Flower Boys",
       "names": [
-        "Yllora Elisse B. Billones"
+        "Noah Mararang"
+      ]
+    },
+    {
+      "category": "Junior Flower Girls",
+      "names": [
+        "Amarah Miyahira",
+        "Xia Chunza Limpin",
+        "Georgene Harley Fernandez"
       ]
     }
   ]

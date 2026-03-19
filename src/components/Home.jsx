@@ -5,6 +5,7 @@ import Schedule from './Schedule'
 import RSVPSection from './RSVPSection'
 import LoveStory from './LoveStory'
 import DressCode from './DressCode'
+import GiftSection from './GiftSection'
 import FAQ from './FAQ'
 import SaveTheDateCounter from './SaveTheDateCounter'
 import Divider from './Divider'
@@ -64,6 +65,9 @@ const Home = ({ onOpenRSVP }) => {
           <LoveStory />
         </div>
       </div>
+
+      {/* Gift Section */}
+      <GiftSection />
 
       {/* FAQ Section */}
       <FAQ />

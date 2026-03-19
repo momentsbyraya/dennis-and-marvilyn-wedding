@@ -17,7 +17,7 @@
 }
 .preloader-heart .heart-icon {
   display: block;
-  fill: #5BAED9;
+  fill: #7092BE;
   animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .preloader span {
-  --c: #5BAED9;
+  --c: #7092BE;
   position: absolute;
   display: block;
   height: 64px;
@@ -89,15 +89,15 @@
   height: 16px;
   width: 64px;
   border-radius: 50%;
-  background-color: #5BAED9;
-  border: 1px solid #5BAED9;
+  background-color: #7092BE;
+  border: 1px solid #7092BE;
   animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
 }
 
 @keyframes shadow {
   50% {
     transform: translateX(-50%) scale(0.5);
-    border-color: #4A9FD4;
+    border-color: #6685A4;
   }
 }
 

@@ -43,27 +43,29 @@ const Hero = () => {
 
   useEffect(() => {
     // Set initial hidden states
-    gsap.set(groomFirstNameRef.current, { opacity: 0, y: 30 })
-    gsap.set(groomLastNameRef.current, { opacity: 0, y: 30 })
-    gsap.set(andRef.current, { opacity: 0, y: 20 })
-    gsap.set(brideFirstNameRef.current, { opacity: 0, y: 30 })
-    gsap.set(brideLastNameRef.current, { opacity: 0, y: 30 })
-    gsap.set(dateRef.current, { opacity: 0, y: 20 })
-    gsap.set(venueRef.current, { opacity: 0, y: 20 })
-    gsap.set(playButtonRef.current, { opacity: 0, scale: 0.8 })
+    if (groomFirstNameRef.current) gsap.set(groomFirstNameRef.current, { opacity: 0, y: 30 })
+    if (groomLastNameRef.current) gsap.set(groomLastNameRef.current, { opacity: 0, y: 30 })
+    if (andRef.current) gsap.set(andRef.current, { opacity: 0, y: 20 })
+    if (brideFirstNameRef.current) gsap.set(brideFirstNameRef.current, { opacity: 0, y: 30 })
+    if (brideLastNameRef.current) gsap.set(brideLastNameRef.current, { opacity: 0, y: 30 })
+    if (dateRef.current) gsap.set(dateRef.current, { opacity: 0, y: 20 })
+    if (venueRef.current) gsap.set(venueRef.current, { opacity: 0, y: 20 })
+    if (playButtonRef.current) gsap.set(playButtonRef.current, { opacity: 0, scale: 0.8 })
 
     // Create timeline for sequential animations
     const tl = gsap.timeline({ delay: 0.3 })
 
     // 1. Groom's name
-    if (groomFirstNameRef.current && groomLastNameRef.current) {
+    if (groomFirstNameRef.current) {
       tl.to(groomFirstNameRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         ease: "power2.out"
       })
-      .to(groomLastNameRef.current, {
+    }
+    if (groomLastNameRef.current) {
+      tl.to(groomLastNameRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.6,
@@ -82,14 +84,16 @@ const Hero = () => {
     }
 
     // 3. Bride's name
-    if (brideFirstNameRef.current && brideLastNameRef.current) {
+    if (brideFirstNameRef.current) {
       tl.to(brideFirstNameRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.6,
         ease: "power2.out"
       })
-      .to(brideLastNameRef.current, {
+    }
+    if (brideLastNameRef.current) {
+      tl.to(brideLastNameRef.current, {
         opacity: 1,
         y: 0,
         duration: 0.6,
@@ -128,6 +132,9 @@ const Hero = () => {
     }
   }, [])
 
+  const groomLastName = couple.groom.lastName?.trim()
+  const brideLastName = couple.bride.lastName?.trim()
+
   return (
     <div className="relative w-full" style={{ height: '100vh' }}>
       {/* Audio Element */}
@@ -138,10 +145,14 @@ const Hero = () => {
         onEnded={() => setIsPlaying(false)}
       />
       
-      <img 
-        src="/assets/images/prenup/prenup3.JPG" 
+      {/* Use a high-resolution image (e.g. 1920px+ wide) so it doesn't upscale and look blurry at full viewport */}
+      <img
+        src="/assets/images/prenup/DSC6528.webp"
         alt="Hero"
-        className="w-full h-full object-cover md:object-top"
+        className="w-full h-full object-cover object-center md:object-top"
+        fetchPriority="high"
+        decoding="async"
+        style={{ imageRendering: 'auto' }}
       />
       
       {/* Top gradient: short strip so it stays in header only; no overlap below */}
@@ -189,16 +200,18 @@ const Hero = () => {
             >
               {couple.groom.firstName}
             </p>
-            <p
-              ref={groomLastNameRef}
-              className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3"
-              style={{
-                color: '#FFFFFF',
-                textShadow: '0 0 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2)',
-              }}
-            >
-              {couple.groom.lastName}
-            </p>
+            {groomLastName && (
+              <p
+                ref={groomLastNameRef}
+                className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3"
+                style={{
+                  color: '#FFFFFF',
+                  textShadow: '0 0 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                {couple.groom.lastName}
+              </p>
+            )}
           </div>
           <p
             ref={andRef}
@@ -222,16 +235,18 @@ const Hero = () => {
             >
               {couple.bride.firstName}
             </p>
-            <p
-              ref={brideLastNameRef}
-              className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3"
-              style={{
-                color: '#FFFFFF',
-                textShadow: '0 0 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2)',
-              }}
-            >
-              {couple.bride.lastName}
-            </p>
+            {brideLastName && (
+              <p
+                ref={brideLastNameRef}
+                className="font-ballet text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight -mt-2 sm:-mt-3"
+                style={{
+                  color: '#FFFFFF',
+                  textShadow: '0 0 32px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2)',
+                }}
+              >
+                {couple.bride.lastName}
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -266,9 +281,9 @@ const Hero = () => {
         style={{ pointerEvents: 'auto' }}
       >
         {isPlaying ? (
-          <Pause size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#5BAED9]" fill="#5BAED9" />
+          <Pause size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#7092BE]" fill="#7092BE" />
         ) : (
-          <Play size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#5BAED9] ml-1" fill="#5BAED9" />
+          <Play size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#7092BE] ml-1" fill="#7092BE" />
         )}
       </button>
 
@@ -279,7 +294,7 @@ const Hero = () => {
               {formatDate()}
             </p>
           {/* Venue - Plain Text */}
-          <p ref={venueRef} className="text-xs sm:text-sm md:text-base font-albert mt-2 sm:mt-3" style={{ color: themeConfig.text.lightBlack }}>
+          <p ref={venueRef} className="text-xs sm:text-sm md:text-base font-albert mt-2 sm:mt-3" style={{ color: '#FFFFFF' }}>
               {venueName}
             </p>
         </div>

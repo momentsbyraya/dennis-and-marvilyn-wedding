@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { dresscode } from '../data'
-import { themeConfig } from '../config/themeConfig'
 import Line from './Line'
 import './pages/Details.css'
 
@@ -17,39 +16,40 @@ const DressCode = () => {
   
   // State for tooltip visibility
   const [activeTooltip, setActiveTooltip] = useState(null)
-  
-  // Color swatches for Principal Sponsors (gray for Ninongs, Cerulean for Ninangs)
-  const sponsorColors = [
-    '#6B7280',                      // Gray (for Ninongs)
-    themeConfig.text.cerulean       // Cerulean Blue (for Ninangs)
-  ]
+  const [activeDressImageIndex, setActiveDressImageIndex] = useState(0)
   
   // Color swatches for Guests (blue palette + neutrals)
   const guestColors = [
-    themeConfig.text.royalAzure,    // Royal Azure
-    themeConfig.text.cerulean,     // Cerulean Blue
-    '#B9E3FF',                     // Powder Blue
-    '#7EC8E3',                     // Soft sky blue
-    '#D3D3D3',                     // Light grey
-    '#9CA3AF'                      // Grey
+    '#94AFC3',                      // Muted Steel Blue
+    '#6685A4',                      // Dusty Slate Blue
+    '#2F4869',                      // Deep Navy
+    '#7092BE',                      // Medium Denim
+    '#6BB7E5'                       // Sky Blue
+  ]
+
+  // Dress illustrations to match swatches
+  const guestDressImages = [
+    '/assets/images/dresscode/1.png',
+    '/assets/images/dresscode/2.png',
+    '/assets/images/dresscode/3.png',
+    '/assets/images/dresscode/4.png',
+    '/assets/images/dresscode/5.png',
   ]
   
   // Color name mappings
   const colorNames = {
-    '#6B7280': 'Gray',
-    '#000000': 'Black',
-    [themeConfig.text.royalAzure]: 'Royal Azure',
-    [themeConfig.text.cerulean]: 'Cerulean Blue',
-    '#B9E3FF': 'Powder Blue',
-    '#7EC8E3': 'Sky Blue',
-    '#D3D3D3': 'Light Grey',
-    '#9CA3AF': 'Grey',
-    [themeConfig.text.brown]: 'Brown',
-    [themeConfig.text.beige]: 'Beige',
-    [themeConfig.text.ivory]: 'Ivory',
+    '#94AFC3': 'Muted Steel Blue',
+    '#6685A4': 'Dusty Slate Blue',
+    '#2F4869': 'Deep Navy',
+    '#7092BE': 'Medium Denim',
+    '#6BB7E5': 'Sky Blue',
   }
 
   useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveDressImageIndex((prev) => (prev + 1) % guestDressImages.length)
+    }, 3500)
+
     // Dress Code Title animation
     if (dressCodeTitleRef.current) {
       ScrollTrigger.create({
@@ -109,48 +109,44 @@ const DressCode = () => {
     // Category 2 animation - animate image and content separately
     if (category2Ref.current) {
       const category2Container = category2Ref.current
-      const flexContainer = category2Container.querySelector('.flex.flex-row')
-      if (flexContainer) {
-        const category2Image = flexContainer.querySelector('.dresscode-image-container')
-        const category2Content = Array.from(flexContainer.children).find(child => 
-          child.classList.contains('w-1/2') && child.querySelector('.font-boska')
-        )
-        
-        if (category2Image) {
-          gsap.set(category2Image, { opacity: 0, x: 30 })
-        }
-        if (category2Content) {
-          gsap.set(category2Content, { opacity: 0, x: -30 })
-        }
-        
-      ScrollTrigger.create({
-          trigger: category2Ref.current,
-          start: "top 75%",
-          onEnter: () => {
-            if (category2Content) {
-              gsap.to(category2Content, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out"
-              })
-            }
-            if (category2Image) {
-              gsap.to(category2Image, {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: "power2.out",
-                delay: 0.2
-              })
-            }
-          }
-        })
+      const category2Image = category2Container.querySelector('.dresscode-image-container')
+      const category2Content = category2Container.querySelector('.dresscode-details-container')
+
+      if (category2Image) {
+        gsap.set(category2Image, { opacity: 0, x: 30 })
       }
+      if (category2Content) {
+        gsap.set(category2Content, { opacity: 0, x: -30 })
+      }
+
+      ScrollTrigger.create({
+        trigger: category2Ref.current,
+        start: "top 75%",
+        onEnter: () => {
+          if (category2Content) {
+            gsap.to(category2Content, {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              ease: "power2.out"
+            })
+          }
+          if (category2Image) {
+            gsap.to(category2Image, {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              ease: "power2.out",
+              delay: 0.2
+            })
+          }
+        }
+      })
     }
 
     // Cleanup function
     return () => {
+      window.clearInterval(intervalId)
       ScrollTrigger.getAll().forEach(trigger => {
         if (trigger.vars && (
           trigger.vars.trigger === dressCodeTitleRef.current ||
@@ -166,7 +162,7 @@ const DressCode = () => {
   return (
     <div className="relative">
       {/* Dress Code Title */}
-      <div ref={dressCodeTitleRef} className="text-center mb-12 sm:mb-16">
+      <div ref={dressCodeTitleRef} className="text-center mb-6 sm:mb-8">
         <div>
           {/* Single Flower 1 Image */}
           <div className="flex justify-center mb-4">
@@ -191,140 +187,66 @@ const DressCode = () => {
       </div>
 
       {/* Dress Code Content */}
-      <div className="flex flex-col lg-custom:flex-row gap-3 lg-custom:gap-4 items-stretch">
-        {/* Principal Sponsors Category */}
+      <div className="flex flex-col gap-2 lg-custom:gap-3 items-stretch">
+        {/* Vertical Divider - Hidden on mobile, shown on 992px and above */}
+        {/* Guests Category */}
         {dresscode.sections && dresscode.sections[0] && (() => {
           const section = dresscode.sections[0];
           return (
             <div className="relative overflow-visible flex-1">
               <div className="relative overflow-visible">
-                <div 
-                  ref={category1Ref}
-                  className="transition-opacity duration-500 ease-in-out"
-                >
-                  {/* Category Image and Details - Side by side on mobile, stacked on 992px+ */}
-                  <div className="flex flex-row lg-custom:flex-col gap-6 md:gap-8 lg-custom:gap-6 items-start">
-                    {/* Category Details - First category: right aligned on mobile, left aligned on 992px+ */}
-                    <div className="w-1/2 lg-custom:w-full flex flex-col text-right lg-custom:text-left order-1 lg-custom:order-2">
-                      {/* Category Name and Description Container */}
-                      <div className="w-full">
-                        {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-right lg-custom:text-left">
-                          {section.title}
-            </div>
-            
-                        {/* Description */}
-                        {section.description && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-right lg-custom:text-left">
-                            {section.description}
-                          </p>
-                        )}
-                        
-                        {/* Color Swatches */}
-                        <div className="flex gap-2 justify-end lg-custom:justify-start">
-                          {sponsorColors.map((color, index) => (
-                    <div 
-                              key={index}
-                              className="relative group"
-                              onMouseEnter={() => setActiveTooltip(`sponsors-${index}`)}
-                              onMouseLeave={() => setActiveTooltip(null)}
-                              onClick={() => setActiveTooltip(activeTooltip === `sponsors-${index}` ? null : `sponsors-${index}`)}
-                    >
-                              <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
-                              {activeTooltip === `sponsors-${index}` && (
-                                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
-                                  {colorNames[color]}
-                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-[#333333]"></div>
-                      </div>
-                              )}
-                    </div>
-                  ))}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Category Image - First category: right on mobile, top on desktop */}
-                    {section.image && (
-                      <div className="w-1/2 lg-custom:w-full order-2 lg-custom:order-1">
-                        <div className="w-full relative dresscode-image-container">
-                          <img 
-                            src={section.image} 
-                            alt={section.title} 
-                            className="w-full h-full object-cover rounded"
-              />
-            </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-                </div>
-              );
-            })()}
-            
-        {/* Vertical Divider - Hidden on mobile, shown on 992px and above */}
-        {dresscode.sections && dresscode.sections.length > 1 && (
-          <>
-            <div className="hidden lg-custom:block w-px bg-[#333333] opacity-40 self-stretch"></div>
-            <div className="lg-custom:hidden w-full">
-              <Line />
-            </div>
-          </>
-        )}
-
-        {/* Guests Category */}
-        {dresscode.sections && dresscode.sections[1] && (() => {
-          const section = dresscode.sections[1];
-              return (
-            <div className="relative overflow-visible flex-1">
-              <div className="relative overflow-visible">
-                <div 
+                <div
                   ref={category2Ref}
                   className="text-center transition-opacity duration-500 ease-in-out"
                 >
-                  {/* Category Image and Details - Side by side on mobile, stacked on 992px+ */}
-                  <div className="flex flex-row lg-custom:flex-col gap-6 md:gap-8 lg-custom:gap-6 items-start">
-                    {/* Category Image - Second category: left on mobile, top on desktop */}
-                    {section.image && (
-                      <div className="w-1/2 lg-custom:w-full">
-                        <div className="w-full relative dresscode-image-container">
-                          <img 
-                            src={section.image} 
-                            alt={section.title} 
-                            className="w-full h-full object-cover rounded"
+                  <div className="flex flex-col gap-4 md:gap-5 items-stretch">
+                    {/* Image slot (single fixed position; transitions via opacity) */}
+                    <div className="w-full flex justify-center">
+                      <div className="w-full max-w-[520px] relative overflow-hidden rounded aspect-[4/3] dresscode-image-container transform scale-[1.12] origin-top">
+                        {guestDressImages.map((src, index) => (
+                          <img
+                            key={src}
+                            src={src}
+                            alt="Dress illustration"
+                            className="absolute inset-0 w-full h-full object-contain transition-opacity duration-[3500ms] ease-in-out"
+                            // The preview shifted the 5th dress illustration up/left.
+                            // We override `inset-0` with inline `top/left` for that image only.
+                            style={{
+                              opacity: index === activeDressImageIndex ? 1 : 0,
+                            }}
                           />
-                        </div>
+                        ))}
                       </div>
-                    )}
-                    
-                    {/* Category Details - Second category: left aligned on mobile, bottom on desktop */}
-                    <div className="w-1/2 lg-custom:w-full flex flex-col justify-between text-left lg-custom:text-left dresscode-image-container">
-                      {/* Category Name and Description Container */}
+                    </div>
+
+                    {/* Details + Swatches */}
+                    <div className="w-full dresscode-details-container flex flex-col justify-between text-left lg-custom:text-left">
                       <div>
-                        {/* Category Name */}
-                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-left lg-custom:text-left">
+                        <div className="text-lg sm:text-xl md:text-2xl font-boska text-[#333333] mb-2 text-center">
                           {section.title}
                         </div>
-                        
-                        {/* Short General Description */}
-                        {section.shortDescription && (
-                          <p className="text-sm sm:text-base font-albert font-thin italic text-[#333333] mb-3 text-left lg-custom:text-left">
-                            {section.shortDescription}
-                          </p>
-                        )}
-                        
+
                         {/* Color Swatches */}
-                        <div className="flex justify-start lg-custom:justify-start" style={{ gap: '-4px' }}>
+                        <div className="flex justify-center lg-custom:justify-center gap-2 sm:gap-3">
                           {guestColors.map((color, index) => (
                             <div
                               key={index}
                               className="relative group"
-                              onMouseEnter={() => setActiveTooltip(`guests-${index}`)}
+                              onMouseEnter={() => {
+                                setActiveTooltip(`guests-${index}`)
+                                setActiveDressImageIndex(index)
+                              }}
                               onMouseLeave={() => setActiveTooltip(null)}
-                              onClick={() => setActiveTooltip(activeTooltip === `guests-${index}` ? null : `guests-${index}`)}
-                              style={{ marginLeft: index > 0 ? '-8px' : '0' }}
+                              onClick={() => {
+                                setActiveDressImageIndex(index)
+                                setActiveTooltip(activeTooltip === `guests-${index}` ? null : `guests-${index}`)
+                              }}
                             >
-                              <div className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer" style={{ backgroundColor: color }}></div>
+                              <div
+                                className="w-6 h-6 sm:w-8 sm:h-8 border border-gray-300 rounded cursor-pointer"
+                                style={{ backgroundColor: color }}
+                              ></div>
+
                               {activeTooltip === `guests-${index}` && (
                                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-[#333333] text-white text-xs rounded whitespace-nowrap z-[9999] pointer-events-none color-swatch-tooltip" style={{ position: 'absolute' }}>
                                   {colorNames[color]}
@@ -337,11 +259,11 @@ const DressCode = () => {
                       </div>
                     </div>
                   </div>
-                      </div>
-                    </div>
                 </div>
-              );
-            })()}
+              </div>
+            </div>
+          );
+        })()}
       </div>
     </div>
   )

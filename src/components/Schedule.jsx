@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { couple, schedule as scheduleData } from '../data'
@@ -8,6 +9,7 @@ import './pages/Details.css'
 gsap.registerPlugin(ScrollTrigger)
 
 const Schedule = () => {
+  const navigate = useNavigate()
   const scheduleTitleRef = useRef(null)
   const timelineRef = useRef(null)
   const lineRef = useRef(null)
@@ -76,67 +78,92 @@ const Schedule = () => {
   }, [])
 
   return (
-    <div className="relative program-section bg-[#4A9FD4]">
-      {/* Program Title */}
-      <div ref={scheduleTitleRef} className="relative z-10 mb-12 sm:mb-16 program-title-container">
-        <h3 className="px-6 py-3">
-          <span 
-            className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none capitalize program-title-text"
-          >
-            Order of Events
-          </span>
-        </h3>
-        <p className="text-sm sm:text-base md:text-lg font-albert text-[#f5f5f0] text-center mt-4 mx-auto px-4 program-description">
-          Join us as we celebrate this special day together
-        </p>
-      </div>
+    <>
+      <div className="relative program-section bg-[#6685A4]">
+        {/* Program Title */}
+        <div ref={scheduleTitleRef} className="relative z-10 mb-12 sm:mb-16 program-title-container">
+          <h3 className="px-6 py-3">
+            <span 
+              className="font-foglihten text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-none capitalize program-title-text"
+            >
+              Order of Events
+            </span>
+          </h3>
+          <p className="text-sm sm:text-base md:text-lg font-albert text-[#f5f5f0] text-center mt-4 mx-auto px-4 program-description">
+            Join us as we celebrate this special day together
+          </p>
+        </div>
 
-      {/* Vertical Timeline */}
-      <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-2xl w-full mx-auto z-10 timeline-container">
-        {/* Central Vertical Line - Light Grey */}
-        <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-[#f5f5f0] opacity-50 transform -translate-x-1/2"></div>
+        {/* Vertical Timeline */}
+        <div ref={timelineRef} className="relative max-w-md sm:max-w-xl lg:max-w-2xl w-full mx-auto z-10 timeline-container">
+          {/* Central Vertical Line - Light Grey */}
+          <div ref={lineRef} className="absolute left-1/2 top-0 bottom-0 w-px bg-[#f5f5f0] opacity-50 transform -translate-x-1/2"></div>
 
-        {/* Timeline Events */}
-        <div ref={eventsRef} className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
-           {scheduleData.events.map((event, index) => {
-             const isLeft = event.position === 'left'
-             return (
-               <div key={index} className="flex items-center relative min-h-[60px]">
-                 {isLeft ? (
-                   <>
-            <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
-                         {event.time}
+          {/* Timeline Events */}
+          <div ref={eventsRef} className="space-y-12 sm:space-y-16 md:space-y-20 lg:space-y-24">
+             {scheduleData.events.map((event, index) => {
+               const isLeft = event.position === 'left'
+               return (
+                 <div key={index} className="flex items-center relative min-h-[60px]">
+                   {isLeft ? (
+                     <>
+              <div className="w-1/2 pr-6 text-right flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
+                           {event.time}
+                </div>
+                <div className="border-b border-dashed border-[#f5f5f0] opacity-50 mb-1"></div>
+                <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
+                           {event.description}
+                </div>
               </div>
-              <div className="border-b border-dashed border-[#f5f5f0] opacity-50 mb-1"></div>
-              <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
-                         {event.description}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#f5f5f0] rounded-full z-10"></div>
+                       <div className="w-1/2 pl-6 text-left"></div>
+                     </>
+                   ) : (
+                     <>
+                       <div className="w-1/2 pr-6 text-right"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#f5f5f0] rounded-full z-10"></div>
+              <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
+                           {event.time}
+                </div>
+                <div className="border-b border-dashed border-[#f5f5f0] opacity-50 mb-1"></div>
+                <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
+                           {event.description}
+                </div>
               </div>
+                     </>
+                   )}
             </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#f5f5f0] rounded-full z-10"></div>
-                     <div className="w-1/2 pl-6 text-left"></div>
-                   </>
-                 ) : (
-                   <>
-                     <div className="w-1/2 pr-6 text-right"></div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-[#f5f5f0] rounded-full z-10"></div>
-            <div className="w-1/2 pl-6 text-left flex flex-col justify-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl alice-regular mb-1 timeline-event-time">
-                         {event.time}
-              </div>
-              <div className="border-b border-dashed border-[#f5f5f0] opacity-50 mb-1"></div>
-              <div className="text-sm sm:text-base md:text-lg font-albert timeline-event-description">
-                         {event.description}
-              </div>
-            </div>
-                   </>
-                 )}
+               )
+             })}
           </div>
-             )
-           })}
         </div>
       </div>
-    </div>
+
+      {/* Entourage CTA - directly below Order of Events */}
+      <div className="bg-white pb-14 sm:pb-16">
+        <div className="max-w-md sm:max-w-xl lg:max-w-2xl w-full mx-auto px-4">
+          <div className="border-t border-gray-300/50 pt-10 sm:pt-12 text-center">
+            <div className="font-foglihten text-2xl sm:text-3xl md:text-4xl leading-none capitalize text-[#333333]">
+              Entourage
+            </div>
+            <p className="text-sm sm:text-base md:text-lg font-albert text-[#333333] mt-3">
+              View the full list of our wedding entourage
+            </p>
+            <div className="mt-6 flex justify-center">
+              <button
+                type="button"
+                onClick={() => navigate('/entourage')}
+                className="px-6 py-3 rounded-full bg-[#6685A4] text-white font-albert font-semibold hover:opacity-90 transition-opacity duration-200"
+              >
+                View Entourage
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

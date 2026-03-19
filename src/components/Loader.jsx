@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../assets/css/Loader.css'
 
-const CERULEAN = '#5BAED9'
+const CERULEAN = '#7092BE'
 
 const Loader = ({ className = '' }) => {
   return (

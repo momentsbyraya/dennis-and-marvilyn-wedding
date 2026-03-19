@@ -485,10 +485,6 @@ const Entourage = () => {
                     </p>
                   </div>
                 </div>
-                {/* NUPTIALS */}
-                <div className="caudex-bold text-base sm:text-lg md:text-xl lg:text-2xl block leading-none uppercase mt-8" style={{ lineHeight: '0.8', color: '#5BAED9' }}>
-                  NUPTIALS
-                </div>
               </h2>
             </div>
 
@@ -508,33 +504,6 @@ const Entourage = () => {
                 <p className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase whitespace-nowrap overflow-hidden text-ellipsis text-left text-[#333333]">{entourage.parents.bride.mother}</p>
               </div>
             </div>
-
-                {/* Bestman and Maid of Honor */}
-            <div className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
-                  {/* Bestman */}
-                  {bestman && (
-                    <div ref={bestmanRef} className="flex-1">
-                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: '#5BAED9' }}>Bestman</p>
-                      {bestman.names && bestman.names.map((name, index) => (
-                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Maid of Honor */}
-                  {maidOfHonor && (
-                    <div ref={maidOfHonorRef} className="flex-1">
-                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: '#5BAED9' }}>Maid Of Honor</p>
-                      {maidOfHonor.names && maidOfHonor.names.map((name, index) => (
-                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
-                          {name}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-                </div>
 
             {/* Principal Sponsors */}
             {principalSponsors && (() => {
@@ -583,6 +552,33 @@ const Entourage = () => {
                 </div>
               )
             })()}
+
+            {/* Bestman and Maid of Honor */}
+            <div className="mb-6 flex flex-row gap-4 sm:gap-6 justify-center items-center">
+              {/* Bestman */}
+              {bestman && (
+                <div ref={bestmanRef} className="flex-1">
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-right uppercase" style={{ color: '#5BAED9' }}>Bestman</p>
+                  {bestman.names && bestman.names.map((name, index) => (
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-right">
+                      {name}
+                    </p>
+                  ))}
+                </div>
+              )}
+
+              {/* Maid of Honor */}
+              {maidOfHonor && (
+                <div ref={maidOfHonorRef} className="flex-1">
+                  <p className="text-[10px] sm:text-[13px] md:text-[15px] lg:text-[17px] caudex-bold mb-2 whitespace-nowrap text-left uppercase" style={{ color: '#5BAED9' }}>Maid Of Honor</p>
+                  {maidOfHonor.names && maidOfHonor.names.map((name, index) => (
+                    <p key={index} className="text-[8.5px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-poppins uppercase text-[#333333] whitespace-nowrap overflow-hidden text-ellipsis text-left">
+                      {name}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Secondary Sponsors */}
             {secondarySponsors && (

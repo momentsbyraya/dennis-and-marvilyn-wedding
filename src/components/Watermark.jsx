@@ -1,13 +1,13 @@
 import React from 'react'
 
 const Watermark = () => {
-  const watermarkText = "THIS IS HALF DONE FOR CLIENT APPROVAL ONLY"
+  const watermarkText = "DENNIS & MARVILYN"
   
   return (
     <div 
-      className="fixed inset-0 pointer-events-none z-50 overflow-hidden"
+      className="fixed inset-0 pointer-events-none z-10 overflow-hidden"
       style={{
-        opacity: 0.12
+        opacity: 0.07
       }}
     >
       {/* Rotated container for diagonal watermark */}

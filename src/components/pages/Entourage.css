@@ -126,3 +126,32 @@
 .falling-flower.delay-14 {
   animation-delay: 14s;
 }
+
+/* Entourage text color override */
+#entourage,
+#entourage h1,
+#entourage h2,
+#entourage h3,
+#entourage h4,
+#entourage h5,
+#entourage h6,
+#entourage p,
+#entourage span,
+#entourage li,
+#entourage a,
+#entourage button {
+  color: #ffffff !important;
+}
+
+/* Titles: dark blue */
+#entourage .caudex-bold,
+#entourage h3.imperial-script-regular {
+  color: #1e3a8a !important;
+}
+
+/* Keep the main title block fixed in position while scrolling */
+#entourage .text-center.mb-12 {
+  position: sticky;
+  top: 88px;
+  z-index: 30;
+}

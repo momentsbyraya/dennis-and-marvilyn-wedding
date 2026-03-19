@@ -1,6 +1,6 @@
 # Venue images (WHERE TO GO section)
 
-Replace these files with your Choco Cabana photos:
+Replace these files with your Family Farm Resort photos:
 
 - **ceremony.JPG** – First carousel image (e.g. pool area at night)
 - **reception.JPG** – Second carousel image (e.g. A-frame cabin at night)

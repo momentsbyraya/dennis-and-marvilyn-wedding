@@ -356,7 +356,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#5BAED9" 
+            stroke="#7092BE"
             strokeWidth="2" 
             fill="none"
             opacity="0.4"
@@ -368,9 +368,9 @@ const Details = () => {
       {/* <div ref={photoSectionRef}>
       <PhotoSection
         images={[
-          { src: '/assets/images/prenup/Proposal 4.jpg', alt: 'Photo 1', label: 'Memories' },
-          { src: '/assets/images/prenup/Proposal 5.jpg', alt: 'Photo 2', label: 'Together' },
-          { src: '/assets/images/prenup/Proposal 1.jpg', alt: 'Photo 3', label: 'Love' }
+          { src: '/assets/images/prenup/DSC6186.jpg', alt: 'Photo 1', label: 'Memories' },
+          { src: '/assets/images/prenup/DSC6233.jpg', alt: 'Photo 2', label: 'Together' },
+          { src: '/assets/images/prenup/DSC6290.jpg', alt: 'Photo 3', label: 'Love' }
         ]}
         paragraph="This is where our journey began, a moment captured in time that will forever hold a special place in our hearts."
         backgroundTexts={['Forever', 'Always', 'Together', 'Love', 'Us']}
@@ -387,7 +387,7 @@ const Details = () => {
         >
           <path 
             d="M0,50 Q300,20 600,50 T1200,50" 
-            stroke="#5BAED9" 
+            stroke="#7092BE"
             strokeWidth="2" 
             fill="none"
             opacity="0.4"

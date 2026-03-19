@@ -21,8 +21,8 @@ const Venue = () => {
   // Left = Ceremony (General Trias), Right = Reception (Choco Cabana)
   const venueSlides = [
     {
-      src: '/assets/images/venues/ceremony.JPG',
-      alt: 'General Trias City Hall 3rd Flr – Ceremony',
+      src: '/assets/images/venues/ceremony.webp',
+      alt: 'St. John Evangelist Parish Church, Guimba Nueva Ecija – Ceremony',
       label: 'Ceremony',
       name: ceremony.name,
       ceremonyTime: ceremony.time,
@@ -30,8 +30,8 @@ const Venue = () => {
       googleMapsUrl: ceremony.googleMapsUrl
     },
     {
-      src: '/assets/images/venues/reception.JPG',
-      alt: 'Choco Cabana Private Resort, Dasmariñas, Cavite – Reception',
+      src: '/assets/images/venues/reception.webp',
+      alt: 'Family Farm Resort, Brgy. Pacac, Guimba Nueva Ecija – Reception',
       label: 'Reception',
       name: reception.name,
       ceremonyTime: null,
@@ -47,6 +47,15 @@ const Venue = () => {
   const prevImage = () => {
     setCurrentIndex((prev) => (prev - 1 + venueSlides.length) % venueSlides.length)
   }
+
+  // Auto-cycle between Ceremony and Reception (mobile carousel)
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % venueSlides.length)
+    }, 3000)
+
+    return () => window.clearInterval(intervalId)
+  }, [venueSlides.length])
 
   useEffect(() => {
     if (venueTitleRef.current) {
@@ -140,7 +149,7 @@ const Venue = () => {
                     className="flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="w-8 h-8 text-[#4A9FD4]" />
+                    <ChevronLeft className="w-8 h-8 text-[#6685A4]" />
                   </button>
 
                   <div className="w-full max-w-[220px] sm:max-w-[240px] aspect-square relative venue-image-container overflow-hidden">
@@ -165,7 +174,7 @@ const Venue = () => {
                           key={index}
                           onClick={() => setCurrentIndex(index)}
                           className={`h-2 rounded-full transition-all duration-200 ${
-                            index === currentIndex ? 'bg-[#4A9FD4] w-6' : 'bg-white/60 w-2'
+                            index === currentIndex ? 'bg-[#6685A4] w-6' : 'bg-white/60 w-2'
                           }`}
                           aria-label={`Go to slide ${index + 1}`}
                         />
@@ -178,7 +187,7 @@ const Venue = () => {
                     className="flex items-center justify-center transition-opacity duration-200 z-10 flex-shrink-0 hover:opacity-70"
                     aria-label="Next image"
                   >
-                    <ChevronRight className="w-8 h-8 text-[#4A9FD4]" />
+                    <ChevronRight className="w-8 h-8 text-[#6685A4]" />
                   </button>
                 </div>
 
